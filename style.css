@@ -1,0 +1,223 @@
+/* Define variables */
+:root {
+  --green-color: #3064cc; /* Green color */
+  --green-hover: #45a049; /* Hover state for the green color */
+  --background-color: #f7f7f7; /* Light background color */
+  --footer-bg: #aa3030; /* Footer background */
+  --text-color: #333; /* General text color */
+}
+html, body{
+  scroll-behavior: smooth;
+}
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body takes the full height */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: var(--footer-bg);
+  padding: 15px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbar .nav-links li {
+  margin-left: 20px;
+}
+
+.navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar .nav-links li a:hover {
+  text-decoration: underline;
+}
+
+/* Admin Login Section */
+.login-section {
+  background-color: white;
+  padding: 30px;
+  width: 300px;
+  margin: 50px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login-form button {
+  padding: 10px 20px;
+  background-color: var(--green-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: var(--green-hover);
+}
+
+/* Dashboard Section */
+.dashboard-section {
+  padding: 30px;
+  background-color: white;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Ensures the content above the map takes its space, and map below gets the rest */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--green-color);
+  padding: 20px;
+  color: white;
+}
+
+.header button {
+  background-color: white;
+  color: var(--green-color);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.header button:hover {
+  background-color: var(--green-hover);
+  color: white;
+}
+
+/* Map Section */
+.map-section {
+  margin-top: 30px;
+  flex: 1; /* Ensures the map takes the available space */
+}
+
+#map {
+  border: 2px solid green;
+  height: 100%; /* Makes the map container take full available height */
+}
+/* Gallery Section Styling */
+.gallery-section {
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.gallery-section h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.image-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+}
+
+.image-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.image-card-content {
+  padding: 15px;
+}
+
+.image-card-content h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.image-card-content p {
+  font-size: 1em;
+  color: #666;
+}
+
+
+/* Footer Section */
+.footer {
+  background-color: var(--footer-bg);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  margin-top: auto; /* Ensures the footer stays at the bottom */
+}
+
+/* Chart Section */
+.chart-section {
+  margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .login-section {
+    width: 250px;
+  }
+}

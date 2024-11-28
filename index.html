@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Traffic Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navbar Section -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo">Smart Traffic</a>
+      <ul class="nav-links">
+        <li><a href="#image">Image</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="/index.html">Dashboard</a></li>
+        <li><a href="/admin.html">Admin Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="dashboard-section">
+    <header class="header">
+      <h1>Smart Traffic Management Dashboard</h1>
+      <button id="logoutButton">Logout</button>
+    </header>
+
+    <!-- Data Section -->
+    <section class="data-section">
+      <h2>Real-Time Traffic Data</h2>
+      <p>Vehicle Count: <span id="vehicleCount">0</span></p>
+      <p>Traffic Light Status: <span id="lightStatus">Red</span></p>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <h2>Traffic Map</h2>
+      <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+    <!-- Traffic Flow Chart Section -->
+    <section class="chart-section">
+      <h2>Traffic Flow Chart</h2>
+      <canvas id="trafficChart"></canvas>
+    </section>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section" id="image">
+    <h2>Gallery</h2>
+    <div class="gallery-container">
+      <div class="image-card">
+        <img src="/Images/1.jpg" alt="Image 1">
+        <div class="image-card-content">
+          <h3>Traffic Signal</h3>
+          <p>Control signals for traffic management.</p>
+        </div>
+      </div>
+      <div class="image-card">
+        <img src="/Images/2.jpg" alt="Image 2">
+        <div class="image-card-content">
+          <h3>High Congestion Area</h3>
+          <p>Area with heavy traffic congestion.</p>
+        </div>
+      </div>
+      <div class="image-card">
+        <img src="/Images/3.jpg" alt="Image 3">
+        <div class="image-card-content">
+          <h3>Traffic Route</h3>
+          <p>Major route for traffic flow.</p>
+        </div>
+      </div>
+      <div class="image-card">
+        <img src="/Images/4.jpg" alt="Image 3">
+        <div class="image-card-content">
+          <h3>Traffic Route</h3>
+          <p>Major route for traffic flow.</p>
+        </div>
+      </div>
+      <div class="image-card">
+        <img src="/Images/5.jpg" alt="Image 3">
+        <div class="image-card-content">
+          <h3>Traffic Route</h3>
+          <p>Major route for traffic flow.</p>
+        </div>
+      </div>
+      <!-- Add more image cards as needed -->
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2024 Smart Traffic Management | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Initialize the map
+    const map = L.map('map').setView([28.7041, 77.1025], 13); // Centered at Delhi, India
+
+    // Add tile layer (map appearance)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add traffic signal marker
+    const trafficSignalMarker = L.marker([28.7041, 77.1025]).addTo(map);
+    trafficSignalMarker.bindPopup("<b>Traffic Signal 1</b><br>Current Status: Red.").openPopup();
+
+    // High congestion area circle
+    L.circle([28.7050, 77.1045], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 200
+    }).addTo(map).bindPopup("High Congestion Area");
+
+    // Traffic route polyline
+    const trafficRoute = [
+      [28.7041, 77.1025],
+      [28.7030, 77.1030],
+      [28.7050, 77.1045]
+    ];
+    L.polyline(trafficRoute, { color: 'blue' }).addTo(map).bindPopup("Traffic Route");
+
+    // Logout functionality
+    document.getElementById('logoutButton').addEventListener('click', function() {
+      alert("Logged out successfully.");
+    });
+  </script>
+</body>
+</html>
